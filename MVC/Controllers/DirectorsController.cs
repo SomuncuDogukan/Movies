@@ -43,6 +43,35 @@ namespace MVC.Controllers
             return View(director);
         }
 
+
+        public IActionResult Create()
+        {
+            // TODO: Add get related items service logic here to set ViewData if necessary and update null parameter in SelectList with these items
+            return View();
+        }
+
+        // POST: Directors/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(DirectoryModel director)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO: Add insert service logic here
+                var result = _directorService.Add(director);
+                if (result.IsSuccessful)
+                {
+                    TempData["Message"] = result.Message; // we must put TempData["Message"] in the Index view
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError("", result.Message);
+            }
+            // TODO: Add get related items service logic here to set ViewData if necessary and update null parameter in SelectList with these items
+            return View(director);
+        }
+
         // GET: Directors/Create
         //public IActionResult Create()
         //{

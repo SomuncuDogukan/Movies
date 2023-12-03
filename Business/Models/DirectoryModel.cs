@@ -6,7 +6,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Data_Access.Entities;
-using Data_Access.Entities;
 
 
 namespace Business.Models;
@@ -22,7 +21,6 @@ public class DirectoryModel
     [Required(ErrorMessage = "{0} is required!")]
 
     [StringLength(10, MinimumLength = 3, ErrorMessage = "{0} must be minimum {2} maximum {1} characters!")]
-    // Way 5:
     [MinLength(3, ErrorMessage = "{0} must be minimum {1} characters!")]
     [MaxLength(10, ErrorMessage = "{0} must be maximum {1} characters!")]
     public string UserName { get; set; }
