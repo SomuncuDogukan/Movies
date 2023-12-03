@@ -1,4 +1,5 @@
-﻿using Data_Access.Entities;
+﻿#nullable disable
+using Data_Access.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

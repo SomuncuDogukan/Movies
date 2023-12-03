@@ -11,6 +11,7 @@ using Data_Access.Entities;
 using Business;
 using Business.Models;
 using Business.Results.Bases;
+using Business.Services;
 
 //Generated from Custom Template.
 namespace MVC.Controllers
@@ -19,13 +20,12 @@ namespace MVC.Controllers
     {
         // TODO: Add service injections here
         private readonly IMovieService _movieService;
-        //private readonly IDirectoryService _directoryService;
+        private readonly IDirectoryService _directoryService;
 
-
-        public MoviesController(IMovieService movieService) //IDirectoryService directoryService)
+        public MoviesController(IMovieService movieService, IDirectoryService directoryService)
         {
             _movieService = movieService;
-           // _directoryService = directoryService;
+           _directoryService = directoryService;
         }
 
         // GET: Movies
@@ -49,7 +49,7 @@ namespace MVC.Controllers
         public IActionResult Create()
         {
             // TODO: Add get related items service logic here to set ViewData if necessary and update null parameter in SelectList with these items
-           // ViewBag.Directors = new SelectList(_directoryService.Query().ToList(), "Id", "UserName");
+           ViewBag.Directors = new SelectList(_directoryService.Query().ToList(), "Id", "UserName");
             return View();
         }
 
@@ -80,7 +80,7 @@ namespace MVC.Controllers
                 ModelState.AddModelError("", result.Message);
             }
             // TODO: Add get related items service logic here to set ViewData if necessary and update null parameter in SelectList with these items
-            //ViewBag.Directors = new SelectList(_directoryService.Query().ToList(), "Id", "UserName");
+            ViewBag.Directors = new SelectList(_directoryService.Query().ToList(), "Id", "UserName");
             return View(movie);
         }
 
