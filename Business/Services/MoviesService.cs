@@ -95,22 +95,13 @@ public class MovieService : IMovieService // UserService is a IUserService (User
         if (existingUsers.Any(u => u.Name.Equals(model.Name.Trim(), StringComparison.OrdinalIgnoreCase)))
             return new ErrorResult("Movie with the same name already exists!");
 
-        // entity creation from the model
+      
         Movie userEntity = new Movie()
         {
             Name = model.Name,
             Year = model.Year,
             Revenue = model.Revenue,
 
-            // Way 1:
-            //RoleId = model.RoleId != null ? model.RoleId.Value : 0,
-            // Way 2:
-            //RoleId = model.RoleId is not null ? model.RoleId.Value : 0,
-            // Way 3:
-            //RoleId = model.RoleId.HasValue ? model.RoleId.Value : 0,
-            // Way 4:
-            //RoleId = model.RoleId.Value, // if we are sure that RoleId has a value
-            // Way 5:
             DirectorId = model.DirectorId,
 
 

@@ -1,6 +1,7 @@
 //using Business;
 //using Business.Services;
 using Business;
+using Business.Services;
 using DataAccess.Contexts;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -82,6 +83,7 @@ builder.Services.AddDbContext<Db>(options => options // options used in the AddD
 //builder.Services.AddScoped<IResourceService, ResourceService>();
 //#endregion
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IDirectoryService, DirectorService>();
 
 builder.Services.AddControllersWithViews();
 
