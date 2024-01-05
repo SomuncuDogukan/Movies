@@ -1,4 +1,4 @@
-﻿@model MovieModel
+﻿@model Business.Models.MovieModel
 @*Generated from Custom Template.*@
 @*Model namespace using directive should be added to _ViewImports.cshtml.*@
 
@@ -37,21 +37,12 @@
         <dd class="col-10">
             @Html.DisplayFor(model => model.DirectorId)
         </dd>
-        <dt class="col-2">
-            @Html.DisplayNameFor(model => model.Guid)
-        </dt>
-        <dd class="col-10">
-            @Html.DisplayFor(model => model.Guid)
-        </dd>
     </dl>
-    
+
     <form asp-action="Delete">
-	@Html.AntiForgeryToken()
-        <input type="hidden" asp-for="Id" />
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="id" />
         <input type="submit" value="Yes" class="btn btn-danger" />&nbsp;&nbsp;
         <a asp-action="Index" class="btn btn-success">No</a>
     </form>
 </div>
-
-
-

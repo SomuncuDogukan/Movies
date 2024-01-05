@@ -15,10 +15,6 @@
 
   <ItemGroup>
     <Content Remove="Views\Directors\Delete.cshtml" />
-    <Content Remove="Views\Directors\Details.cshtml" />
-    <Content Remove="Views\Directors\Edit.cshtml" />
-    <Content Remove="Views\Movies\Delete.cshtml" />
-    <Content Remove="Views\Movies\Edit.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
